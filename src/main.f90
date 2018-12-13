@@ -1,4 +1,4 @@
-      program ssph
+      program slbw
 
         implicit none
 
@@ -715,4 +715,4 @@
       !
       end subroutine wofz
 
-      end program
+      end program slbw

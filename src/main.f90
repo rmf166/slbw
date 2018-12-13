@@ -1,4 +1,4 @@
-      program slbw
+      program main
 
         implicit none
 
@@ -184,8 +184,8 @@
         write(res,'(i1)') r
         datafile='res'//res//'.dat'
         open(unit=1,file=datafile,action='write',status='unknown')
-        do ig=ng+1,1,-1
-          eng=emin+(ig-1)*del
+        do ig=1,ng+1
+          eng=emin+(ng+1-ig)*del
           write(1,'(8(es12.5))') eng,(siga(ig,t),t=1,nt)
         enddo
         eng=emin+ng*del
@@ -347,8 +347,8 @@
         integer(4)              :: ig
         real(8)                 :: eng
 
-        do ig=ng+1,1,-1
-          eng=emin+(ig-1)*del
+        do ig=1,ng+1
+          eng=emin+(ng+1-ig)*del
           call slbw(eng,eng0,spi,aj,gamn,gamg,tmp,sigg(ig))
         enddo
 
@@ -715,4 +715,4 @@
       !
       end subroutine wofz
 
-      end program slbw
+      end program main
